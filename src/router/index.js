@@ -27,6 +27,12 @@ const routes = [
     ]
   },
   {
+    path: "/login",
+    name: "login",
+    meta: { title: "登录" },
+    component: resolve => (require(["@/views/login"], resolve)),
+  },
+  {
     path: "*",
     name: "404",
     component: resolve => (require(["@/views/404"], resolve)),

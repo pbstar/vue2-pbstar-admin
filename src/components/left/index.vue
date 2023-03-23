@@ -47,6 +47,132 @@
         <i class="el-icon-menu"></i>
         <span slot="title">角色管理</span>
       </el-menu-item>
+      <el-submenu index="2">
+        <template slot="title">
+          <i class="el-icon-location"></i>
+          <span>导航一</span>
+        </template>
+        <el-menu-item index="1-1">选项1</el-menu-item>
+        <el-menu-item index="1-2">选项2</el-menu-item>
+        <el-menu-item index="1-3">选项3</el-menu-item>
+      </el-submenu>
+      <el-menu-item index="adminUserList" @click="toPage('userList')">
+        <i class="el-icon-user-solid"></i>
+        <span slot="title">用户管理</span>
+      </el-menu-item>
+      <el-menu-item index="adminClassList" @click="toPage('classList')">
+        <i class="el-icon-menu"></i>
+        <span slot="title">班级管理</span>
+      </el-menu-item>
+      <el-menu-item index="7">
+        <i class="el-icon-menu"></i>
+        <span slot="title">角色管理</span>
+      </el-menu-item>
+      <el-submenu index="2">
+        <template slot="title">
+          <i class="el-icon-location"></i>
+          <span>导航一</span>
+        </template>
+        <el-menu-item index="1-1">选项1</el-menu-item>
+        <el-menu-item index="1-2">选项2</el-menu-item>
+        <el-menu-item index="1-3">选项3</el-menu-item>
+      </el-submenu>
+      <el-menu-item index="adminUserList" @click="toPage('userList')">
+        <i class="el-icon-user-solid"></i>
+        <span slot="title">用户管理</span>
+      </el-menu-item>
+      <el-menu-item index="adminClassList" @click="toPage('classList')">
+        <i class="el-icon-menu"></i>
+        <span slot="title">班级管理</span>
+      </el-menu-item>
+      <el-menu-item index="7">
+        <i class="el-icon-menu"></i>
+        <span slot="title">角色管理</span>
+      </el-menu-item>
+      <el-submenu index="2">
+        <template slot="title">
+          <i class="el-icon-location"></i>
+          <span>导航一</span>
+        </template>
+        <el-menu-item index="1-1">选项1</el-menu-item>
+        <el-menu-item index="1-2">选项2</el-menu-item>
+        <el-menu-item index="1-3">选项3</el-menu-item>
+      </el-submenu>
+      <el-menu-item index="adminUserList" @click="toPage('userList')">
+        <i class="el-icon-user-solid"></i>
+        <span slot="title">用户管理</span>
+      </el-menu-item>
+      <el-menu-item index="adminClassList" @click="toPage('classList')">
+        <i class="el-icon-menu"></i>
+        <span slot="title">班级管理</span>
+      </el-menu-item>
+      <el-menu-item index="7">
+        <i class="el-icon-menu"></i>
+        <span slot="title">角色管理</span>
+      </el-menu-item>
+      <el-submenu index="2">
+        <template slot="title">
+          <i class="el-icon-location"></i>
+          <span>导航一</span>
+        </template>
+        <el-menu-item index="1-1">选项1</el-menu-item>
+        <el-menu-item index="1-2">选项2</el-menu-item>
+        <el-menu-item index="1-3">选项3</el-menu-item>
+      </el-submenu>
+      <el-menu-item index="adminUserList" @click="toPage('userList')">
+        <i class="el-icon-user-solid"></i>
+        <span slot="title">用户管理</span>
+      </el-menu-item>
+      <el-menu-item index="adminClassList" @click="toPage('classList')">
+        <i class="el-icon-menu"></i>
+        <span slot="title">班级管理</span>
+      </el-menu-item>
+      <el-menu-item index="7">
+        <i class="el-icon-menu"></i>
+        <span slot="title">角色管理</span>
+      </el-menu-item>
+      <el-submenu index="2">
+        <template slot="title">
+          <i class="el-icon-location"></i>
+          <span>导航一</span>
+        </template>
+        <el-menu-item index="1-1">选项1</el-menu-item>
+        <el-menu-item index="1-2">选项2</el-menu-item>
+        <el-menu-item index="1-3">选项3</el-menu-item>
+      </el-submenu>
+      <el-menu-item index="adminUserList" @click="toPage('userList')">
+        <i class="el-icon-user-solid"></i>
+        <span slot="title">用户管理</span>
+      </el-menu-item>
+      <el-menu-item index="adminClassList" @click="toPage('classList')">
+        <i class="el-icon-menu"></i>
+        <span slot="title">班级管理</span>
+      </el-menu-item>
+      <el-menu-item index="7">
+        <i class="el-icon-menu"></i>
+        <span slot="title">角色管理</span>
+      </el-menu-item>
+      <el-submenu index="2">
+        <template slot="title">
+          <i class="el-icon-location"></i>
+          <span>导航一</span>
+        </template>
+        <el-menu-item index="1-1">选项1</el-menu-item>
+        <el-menu-item index="1-2">选项2</el-menu-item>
+        <el-menu-item index="1-3">选项3</el-menu-item>
+      </el-submenu>
+      <el-menu-item index="adminUserList" @click="toPage('userList')">
+        <i class="el-icon-user-solid"></i>
+        <span slot="title">用户管理</span>
+      </el-menu-item>
+      <el-menu-item index="adminClassList" @click="toPage('classList')">
+        <i class="el-icon-menu"></i>
+        <span slot="title">班级管理</span>
+      </el-menu-item>
+      <el-menu-item index="7">
+        <i class="el-icon-menu"></i>
+        <span slot="title">角色管理</span>
+      </el-menu-item>
     </el-menu>
   </div>
 </template>
@@ -104,13 +230,14 @@ export default {
     white-space: nowrap;
   }
   .logo {
-    width: 36px;
-    height: 36px;
+    width: 30px;
+    height: 30px;
   }
 }
 .midbox {
-  height: calc(100vh - 66px);
+  height: calc(100vh - 75px);
   padding-top: 6px;
+  padding-bottom: 9px;
   background-color: #545c64;
   border-right-color: #545c64;
   overflow-y: auto;

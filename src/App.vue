@@ -23,7 +23,7 @@ export default {
     },
   },
   mounted() {
-    let loading = document.getElementById("p_app_loading");
+    let loading = document.getElementById("p_app_loading_mask");
     loading.style.display = "none";
   },
 };
