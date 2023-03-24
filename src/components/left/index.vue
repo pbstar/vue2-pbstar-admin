@@ -7,7 +7,7 @@
       </transition>
     </div>
     <el-menu
-      default-active="2"
+      :default-active="defaultActive"
       class="midbox"
       @open="handleOpen"
       @close="handleClose"
@@ -19,160 +19,76 @@
     >
       <el-submenu index="1">
         <template slot="title">
-          <i class="el-icon-location"></i>
-          <span>导航一</span>
+          <i class="el-icon-copy-document"></i>
+          <span>综合业务</span>
         </template>
-        <el-menu-item index="1-1">选项1</el-menu-item>
-        <el-menu-item index="1-2">选项2</el-menu-item>
-        <el-menu-item index="1-3">选项3</el-menu-item>
+        <el-menu-item
+          index="adminBusinessArticleList"
+          @click="toPage('adminBusinessArticleList')"
+          >列表页面</el-menu-item
+        >
       </el-submenu>
-      <el-submenu index="2">
+      <el-menu-item index="adminEcharts" @click="toPage('adminEcharts')">
+        <i class="el-icon-pie-chart"></i>
+        <span>ECharts图表</span>
+      </el-menu-item>
+      <el-submenu index="3">
         <template slot="title">
-          <i class="el-icon-location"></i>
-          <span>导航一</span>
+          <i class="el-icon-notebook-2"></i>
+          <span>PDF文件</span>
         </template>
-        <el-menu-item index="1-1">选项1</el-menu-item>
-        <el-menu-item index="1-2">选项2</el-menu-item>
-        <el-menu-item index="1-3">选项3</el-menu-item>
+        <el-menu-item index="adminPdfPreview" @click="toPage('adminPdfPreview')"
+          >预览</el-menu-item
+        >
+        <el-menu-item index="adminPdfExport" @click="toPage('adminPdfExport')"
+          >导出</el-menu-item
+        >
       </el-submenu>
-      <el-menu-item index="adminUserList" @click="toPage('userList')">
-        <i class="el-icon-user-solid"></i>
-        <span slot="title">用户管理</span>
+      <el-menu-item index="adminZip" @click="toPage('adminZip')">
+        <i class="el-icon-s-cooperation"></i>
+        <span>ZIP压缩包</span>
       </el-menu-item>
-      <el-menu-item index="adminClassList" @click="toPage('classList')">
-        <i class="el-icon-menu"></i>
-        <span slot="title">班级管理</span>
+      <el-menu-item index="adminExcel" @click="toPage('adminExcel')">
+        <i class="el-icon-tickets"></i>
+        <span>Excel文件</span>
       </el-menu-item>
-      <el-menu-item index="7">
-        <i class="el-icon-menu"></i>
-        <span slot="title">角色管理</span>
-      </el-menu-item>
-      <el-submenu index="2">
+      <el-submenu index="6">
         <template slot="title">
-          <i class="el-icon-location"></i>
-          <span>导航一</span>
+          <i class="el-icon-video-play"></i>
+          <span>视频播放</span>
         </template>
-        <el-menu-item index="1-1">选项1</el-menu-item>
-        <el-menu-item index="1-2">选项2</el-menu-item>
-        <el-menu-item index="1-3">选项3</el-menu-item>
+        <el-menu-item
+          index="adminVideoXgPlayer"
+          @click="toPage('adminVideoXgPlayer')"
+          >xgPlayer</el-menu-item
+        >
       </el-submenu>
-      <el-menu-item index="adminUserList" @click="toPage('userList')">
-        <i class="el-icon-user-solid"></i>
-        <span slot="title">用户管理</span>
-      </el-menu-item>
-      <el-menu-item index="adminClassList" @click="toPage('classList')">
-        <i class="el-icon-menu"></i>
-        <span slot="title">班级管理</span>
-      </el-menu-item>
-      <el-menu-item index="7">
-        <i class="el-icon-menu"></i>
-        <span slot="title">角色管理</span>
-      </el-menu-item>
-      <el-submenu index="2">
+      <el-submenu index="7">
         <template slot="title">
-          <i class="el-icon-location"></i>
-          <span>导航一</span>
+          <i class="el-icon-help"></i>
+          <span>功能组件</span>
         </template>
-        <el-menu-item index="1-1">选项1</el-menu-item>
-        <el-menu-item index="1-2">选项2</el-menu-item>
-        <el-menu-item index="1-3">选项3</el-menu-item>
+        <el-menu-item
+          index="adminModuleSignature"
+          @click="toPage('adminModuleSignature')"
+          >电子签名</el-menu-item
+        >
       </el-submenu>
-      <el-menu-item index="adminUserList" @click="toPage('userList')">
-        <i class="el-icon-user-solid"></i>
-        <span slot="title">用户管理</span>
+      <el-menu-item index="adminUpload" @click="toPage('adminUpload')">
+        <i class="el-icon-upload"></i>
+        <span>文件上传</span>
       </el-menu-item>
-      <el-menu-item index="adminClassList" @click="toPage('classList')">
-        <i class="el-icon-menu"></i>
-        <span slot="title">班级管理</span>
-      </el-menu-item>
-      <el-menu-item index="7">
-        <i class="el-icon-menu"></i>
-        <span slot="title">角色管理</span>
-      </el-menu-item>
-      <el-submenu index="2">
+      <el-submenu index="9">
         <template slot="title">
-          <i class="el-icon-location"></i>
-          <span>导航一</span>
+          <i class="el-icon-edit-outline"></i>
+          <span>富文本编辑器</span>
         </template>
-        <el-menu-item index="1-1">选项1</el-menu-item>
-        <el-menu-item index="1-2">选项2</el-menu-item>
-        <el-menu-item index="1-3">选项3</el-menu-item>
+        <el-menu-item
+          index="adminEditerWangEditer"
+          @click="toPage('adminEditerWangEditer')"
+          >wangEditer</el-menu-item
+        >
       </el-submenu>
-      <el-menu-item index="adminUserList" @click="toPage('userList')">
-        <i class="el-icon-user-solid"></i>
-        <span slot="title">用户管理</span>
-      </el-menu-item>
-      <el-menu-item index="adminClassList" @click="toPage('classList')">
-        <i class="el-icon-menu"></i>
-        <span slot="title">班级管理</span>
-      </el-menu-item>
-      <el-menu-item index="7">
-        <i class="el-icon-menu"></i>
-        <span slot="title">角色管理</span>
-      </el-menu-item>
-      <el-submenu index="2">
-        <template slot="title">
-          <i class="el-icon-location"></i>
-          <span>导航一</span>
-        </template>
-        <el-menu-item index="1-1">选项1</el-menu-item>
-        <el-menu-item index="1-2">选项2</el-menu-item>
-        <el-menu-item index="1-3">选项3</el-menu-item>
-      </el-submenu>
-      <el-menu-item index="adminUserList" @click="toPage('userList')">
-        <i class="el-icon-user-solid"></i>
-        <span slot="title">用户管理</span>
-      </el-menu-item>
-      <el-menu-item index="adminClassList" @click="toPage('classList')">
-        <i class="el-icon-menu"></i>
-        <span slot="title">班级管理</span>
-      </el-menu-item>
-      <el-menu-item index="7">
-        <i class="el-icon-menu"></i>
-        <span slot="title">角色管理</span>
-      </el-menu-item>
-      <el-submenu index="2">
-        <template slot="title">
-          <i class="el-icon-location"></i>
-          <span>导航一</span>
-        </template>
-        <el-menu-item index="1-1">选项1</el-menu-item>
-        <el-menu-item index="1-2">选项2</el-menu-item>
-        <el-menu-item index="1-3">选项3</el-menu-item>
-      </el-submenu>
-      <el-menu-item index="adminUserList" @click="toPage('userList')">
-        <i class="el-icon-user-solid"></i>
-        <span slot="title">用户管理</span>
-      </el-menu-item>
-      <el-menu-item index="adminClassList" @click="toPage('classList')">
-        <i class="el-icon-menu"></i>
-        <span slot="title">班级管理</span>
-      </el-menu-item>
-      <el-menu-item index="7">
-        <i class="el-icon-menu"></i>
-        <span slot="title">角色管理</span>
-      </el-menu-item>
-      <el-submenu index="2">
-        <template slot="title">
-          <i class="el-icon-location"></i>
-          <span>导航一</span>
-        </template>
-        <el-menu-item index="1-1">选项1</el-menu-item>
-        <el-menu-item index="1-2">选项2</el-menu-item>
-        <el-menu-item index="1-3">选项3</el-menu-item>
-      </el-submenu>
-      <el-menu-item index="adminUserList" @click="toPage('userList')">
-        <i class="el-icon-user-solid"></i>
-        <span slot="title">用户管理</span>
-      </el-menu-item>
-      <el-menu-item index="adminClassList" @click="toPage('classList')">
-        <i class="el-icon-menu"></i>
-        <span slot="title">班级管理</span>
-      </el-menu-item>
-      <el-menu-item index="7">
-        <i class="el-icon-menu"></i>
-        <span slot="title">角色管理</span>
-      </el-menu-item>
     </el-menu>
   </div>
 </template>
@@ -186,7 +102,11 @@ export default {
   data() {
     return {
       isCollapse: false,
+      defaultActive: "",
     };
+  },
+  created() {
+    this.defaultActive = this.$route.name;
   },
   mounted() {
     this.$bus.$on("toCollapse", () => {
@@ -249,6 +169,18 @@ export default {
     height: 45px;
     line-height: 45px;
   }
+  /deep/ .el-menu-item i {
+    color: #fff;
+  }
+  /deep/ .el-submenu__title i {
+    color: #fff;
+  }
+  /deep/ .el-menu-item.is-active i {
+    color: #409eff;
+  }
+  /deep/ .el-submenu__title.is-active i {
+    color: #409eff;
+  }
 }
 .midbox::-webkit-scrollbar {
   width: 5px;
@@ -265,7 +197,7 @@ export default {
   width: 200px;
 }
 .show-enter-active {
-  animation: move 0.35s alternate;
+  animation: move 0.3s alternate;
 }
 .show-leave-active {
   animation: move2 0.3s alternate;
@@ -275,12 +207,12 @@ export default {
     width: 0;
   }
   to {
-    width: 114px;
+    width: 130px;
   }
 }
 @keyframes move2 {
   from {
-    width: 114px;
+    width: 130px;
   }
   to {
     width: 0;

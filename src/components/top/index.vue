@@ -58,7 +58,6 @@ export default {
       }
     },
     toExit() {
-      console.log(111);
       this.$confirm("确认退出登录吗？").then(() => {
         this.$unit.removeLocalStorage("username");
         this.$router.push({

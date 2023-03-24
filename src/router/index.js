@@ -4,13 +4,15 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 const routes = [
-  // {
-  //   path: '/',
-  //   name: 'home',
-  // },
+  {
+    path: '/',
+    name: 'home',
+    redirect: '/login'
+  },
   {
     path: '/admin',
     name: 'admin',
+    redirect: '/admin/home',
     component: resolve => (require(["@/views/admin"], resolve)),
     children: [
       {
@@ -18,6 +20,56 @@ const routes = [
         name: "adminHome",
         meta: { title: "首页" },
         component: resolve => (require(["@/views/admin/home"], resolve)),
+      }, {
+        path: "businessArticleList",
+        name: "adminBusinessArticleList",
+        meta: { title: "文章列表" },
+        component: resolve => (require(["@/views/admin/business/articleList"], resolve)),
+      }, {
+        path: "echarts",
+        name: "adminEcharts",
+        meta: { title: "Echarts图表" },
+        component: resolve => (require(["@/views/admin/echarts"], resolve)),
+      }, {
+        path: "editerWangEditer",
+        name: "adminEditerWangEditer",
+        meta: { title: "WangEditer编辑器" },
+        component: resolve => (require(["@/views/admin/editer/wangEditer"], resolve)),
+      }, {
+        path: "excel",
+        name: "adminExcel",
+        meta: { title: "Excel文件" },
+        component: resolve => (require(["@/views/admin/excel"], resolve)),
+      }, {
+        path: "moduleSignature",
+        name: "adminModuleSignature",
+        meta: { title: "电子签名" },
+        component: resolve => (require(["@/views/admin/module/signature"], resolve)),
+      }, {
+        path: "pdfExport",
+        name: "adminPdfExport",
+        meta: { title: "Pdf导出" },
+        component: resolve => (require(["@/views/admin/pdf/export"], resolve)),
+      }, {
+        path: "pdfPreview",
+        name: "adminPdfPreview",
+        meta: { title: "Pdf预览" },
+        component: resolve => (require(["@/views/admin/pdf/preview"], resolve)),
+      }, {
+        path: "upload",
+        name: "adminUpload",
+        meta: { title: "文件上传" },
+        component: resolve => (require(["@/views/admin/upload"], resolve)),
+      }, {
+        path: "videoXgPlayer",
+        name: "adminVideoXgPlayer",
+        meta: { title: "西瓜播放器" },
+        component: resolve => (require(["@/views/admin/video/xgPlayer"], resolve)),
+      }, {
+        path: "zip",
+        name: "adminZip",
+        meta: { title: "Zip压缩文件" },
+        component: resolve => (require(["@/views/admin/zip"], resolve)),
       }, {
         path: "*",
         name: "admin404",

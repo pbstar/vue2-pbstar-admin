@@ -8,6 +8,25 @@ export default {
   name: "App",
   watch: {
     $route() {
+      if (
+        this.$route.matched.length > 0 &&
+        this.$route.matched[0].name == "admin"
+      ) {
+        if (!this.$unit.getLocalStorage("username")) {
+          this.$notify({
+            title: "提示",
+            message: "登录失效，请重新登陆！",
+            duration: 3000,
+            type: "warning",
+            position: "bottom-right",
+            dangerouslyUseHTMLString: true,
+          });
+          this.$router.push({
+            name: "login",
+          });
+        }
+      }
+
       this.$http.defaultGet("./config.json").then((res) => {
         if (this.$config.version != res.version) {
           this.$notify({
