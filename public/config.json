@@ -1,4 +1,4 @@
 {
-  "version": "2023.2.2.1",
-  "baseApi": "http://api.baidu.com/"
+  "version": "2023.3.25.1",
+  "baseApi": "http://api.test.com/"
 }
