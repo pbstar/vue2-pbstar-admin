@@ -137,6 +137,7 @@ export default {
   .top {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     border-bottom: 2px solid #efefef;
     padding-bottom: 10px;
     padding-top: 5px;
