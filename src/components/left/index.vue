@@ -25,7 +25,7 @@
         <el-menu-item
           index="adminBusinessArticleList"
           @click="toPage('adminBusinessArticleList')"
-          >列表页面</el-menu-item
+          >文章管理</el-menu-item
         >
       </el-submenu>
       <el-menu-item index="adminEcharts" @click="toPage('adminEcharts')">

@@ -5,8 +5,9 @@ import config from "../public/config.json";
 import element from '@/assets/js/element'
 import 'element-ui/lib/theme-chalk/index.css';
 import "@/assets/css/index.scss";
+import "@/assets/css/element.scss";
 import http from "@/assets/js/http.js";
-import unit from "@/assets/js/unit.js";
+import unit from "@/assets/units/unit.js";
 import bus from "@/assets/js/bus.js";
 Vue.config.productionTip = false;
 Vue.prototype.$http = http;

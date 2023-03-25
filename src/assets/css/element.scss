@@ -1,0 +1,19 @@
+.el-table .el-table__cell {
+  padding: 12px 0;
+  min-width: 0;
+  box-sizing: border-box;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+  position: relative;
+  text-align: left;
+  .cell{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .el-button--text {
+    padding: 3px 0px;
+    font-size: 12px;
+    border-radius: 3px;
+}
+}

@@ -1,5 +1,5 @@
 import {
-  // Pagination,
+  Pagination,
   Dialog,
   // Autocomplete,
   Dropdown,
@@ -17,16 +17,16 @@ import {
   // Checkbox,
   // CheckboxButton,
   // CheckboxGroup,
-  // Switch,
-  // Select,
-  // Option,
+  Switch,
+  Select,
+  Option,
   // OptionGroup,
   Button,
   // ButtonGroup,
   Empty,
-  // Table,
-  // TableColumn,
-  // DatePicker,
+  Table,
+  TableColumn,
+  DatePicker,
   // TimeSelect,
   // TimePicker,
   Popover,
@@ -80,7 +80,7 @@ import {
 } from 'element-ui'
 const element = {
   install: function (Vue) {
-    // Vue.use(Pagination);
+    Vue.use(Pagination);
     Vue.use(Dialog);
     // Vue.use(Autocomplete);
     Vue.use(Dropdown);
@@ -98,16 +98,16 @@ const element = {
     // Vue.use(Checkbox);
     // Vue.use(CheckboxButton);
     // Vue.use(CheckboxGroup);
-    // Vue.use(Switch);
-    // Vue.use(Select);
-    // Vue.use(Option);
+    Vue.use(Switch);
+    Vue.use(Select);
+    Vue.use(Option);
     // Vue.use(OptionGroup);
     Vue.use(Button);
     // Vue.use(ButtonGroup);
     Vue.use(Empty);
-    // Vue.use(Table);
-    // Vue.use(TableColumn);
-    // Vue.use(DatePicker);
+    Vue.use(Table);
+    Vue.use(TableColumn);
+    Vue.use(DatePicker);
     // Vue.use(TimeSelect);
     // Vue.use(TimePicker);
     Vue.use(Popover);

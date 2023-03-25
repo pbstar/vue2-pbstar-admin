@@ -23,7 +23,7 @@ const routes = [
       }, {
         path: "businessArticleList",
         name: "adminBusinessArticleList",
-        meta: { title: "文章列表" },
+        meta: { title: "文章管理" },
         component: resolve => (require(["@/views/admin/business/articleList"], resolve)),
       }, {
         path: "echarts",
