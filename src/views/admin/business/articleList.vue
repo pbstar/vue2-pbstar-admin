@@ -102,7 +102,6 @@ export default {
   },
   methods: {
     getList() {
-      console.log(this.pageSize);
       this.list = [];
       for (let i = 0; i < this.pageSize; i++) {
         this.list.push({
