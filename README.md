@@ -37,5 +37,4 @@ npm run build
 ├── .gitignore                 # git配置文件
 ├── vue.config.js              # vue-cli配置
 └── package.json               # package.json
-
 ```
