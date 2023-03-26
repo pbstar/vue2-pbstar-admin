@@ -9,8 +9,6 @@
     <el-menu
       :default-active="defaultActive"
       class="midbox"
-      @open="handleOpen"
-      @close="handleClose"
       background-color="#545c64"
       text-color="#fff"
       active-text-color="#409eff"
@@ -118,12 +116,6 @@ export default {
     this.$bus.$off("toCollapse");
   },
   methods: {
-    handleOpen(key, keyPath) {
-      console.log(key, keyPath);
-    },
-    handleClose(key, keyPath) {
-      console.log(key, keyPath);
-    },
     toPage(name) {
       this.$router.push({
         name,
