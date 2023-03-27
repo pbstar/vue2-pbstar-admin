@@ -55,31 +55,6 @@ export default {
   h2 {
     margin-top: 20px;
   }
-  pre {
-    background-color: #eee;
-    font-size: 14px;
-    line-height: 20px;
-    border-radius: 6px;
-    margin: 10px 0;
-    padding: 0 16px;
-    font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
-      Liberation Mono, monospace;
-    display: block;
-    white-space: pre;
-    margin: 10px 0px 0;
-    code {
-      display: inline;
-      padding: 0;
-      margin: 0;
-      overflow: visible;
-      line-height: inherit;
-      background-color: transparent;
-      border: 0;
-      word-break: normal;
-      white-space: pre;
-      background: transparent;
-    }
-  }
 }
 </style>
 

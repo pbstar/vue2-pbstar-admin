@@ -41,7 +41,7 @@ export default {
     this.editor.config.uploadImgAccept = ["jpg", "jpeg", "png", "gif"];
     this.editor.config.customUploadImg = function (resultFiles, insertImgFn) {
       console.log(resultFiles);
-      insertImgFn("http://oss.mcweb.club/utools/20233/touxiang.jpg");
+      insertImgFn("http://oss.mcweb.club/utools/20233/touxiang_160.jpg");
     };
   },
   methods: {},
