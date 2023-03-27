@@ -22,7 +22,7 @@
     },{
       fileName: "文件2",
       fileUrl: "http://oss.mcweb.club/utools/20233/touxiang_160.jpg",
-    }],
+    }]
   }]
 }</code>
     </pre>
