@@ -15,9 +15,11 @@
     "jspdf": "^2.5.1",
     "jszip": "^3.10.1",
     "node-sass": "^6.0.0",
+    "pdfjs-dist": "^2.5.207",
     "sass-loader": "^6.0.7",
     "vue": "^2.6.14",
     "vue-esign": "^1.1.4",
+    "vue-pdf": "^4.2.0",
     "vue-router": "^3.5.1",
     "wangeditor": "^4.7.15",
     "xlsx": "^0.18.5"
