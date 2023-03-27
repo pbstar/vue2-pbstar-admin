@@ -103,8 +103,13 @@ export default {
       defaultActive: "",
     };
   },
-  created() {
-    this.defaultActive = this.$route.name;
+  watch: {
+    $route: {
+      handler(to, from) {
+        this.defaultActive = to.name;
+      },
+      immediate: true, //第一次就执行
+    },
   },
   mounted() {
     this.$bus.$on("toCollapse", () => {
