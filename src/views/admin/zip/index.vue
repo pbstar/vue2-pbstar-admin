@@ -26,7 +26,11 @@
   }]
 }</code>
     </pre>
-      <el-button type="primary" style="margin-top: 10px" @click="toExport"
+      <el-button
+        type="primary"
+        :loading="isloading"
+        style="margin-top: 10px"
+        @click="toExport"
         >导出</el-button
       >
     </div>
@@ -37,9 +41,14 @@
 import downloadZip from "@/assets/units/downloadZip";
 export default {
   name: "adminZip",
+  data() {
+    return {
+      isloading: false,
+    };
+  },
   methods: {
     toExport() {
-      downloadZip.downloadZip({
+      let obj = {
         zipName: "压缩包",
         folderList: [
           {
@@ -69,7 +78,19 @@ export default {
             ],
           },
         ],
-      });
+      };
+      this.isloading = true;
+      downloadZip
+        .downloadZip(obj)
+        .then((e) => {
+          this.isloading = false;
+          if (e == 1) this.$message.success("导出成功");
+          else this.$message.error("导出失败");
+        })
+        .catch((e) => {
+          this.isloading = false;
+          this.$message.error(e);
+        });
     },
   },
 };
