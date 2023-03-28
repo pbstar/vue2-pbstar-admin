@@ -15,78 +15,25 @@
       :collapse="isCollapse"
       unique-opened
     >
-      <el-submenu index="1">
-        <template slot="title">
-          <i class="el-icon-copy-document"></i>
-          <span>综合业务</span>
-        </template>
-        <el-menu-item
-          index="adminBusinessArticleList"
-          @click="toPage('adminBusinessArticleList')"
-          >文章管理</el-menu-item
-        >
-      </el-submenu>
-      <el-menu-item index="adminEcharts" @click="toPage('adminEcharts')">
-        <i class="el-icon-pie-chart"></i>
-        <span>ECharts图表</span>
-      </el-menu-item>
-      <el-submenu index="3">
-        <template slot="title">
-          <i class="el-icon-notebook-2"></i>
-          <span>PDF文件</span>
-        </template>
-        <el-menu-item index="adminPdfPreview" @click="toPage('adminPdfPreview')"
-          >预览</el-menu-item
-        >
-        <el-menu-item index="adminPdfExport" @click="toPage('adminPdfExport')"
-          >导出</el-menu-item
-        >
-      </el-submenu>
-      <el-menu-item index="adminZip" @click="toPage('adminZip')">
-        <i class="el-icon-s-cooperation"></i>
-        <span>ZIP压缩包</span>
-      </el-menu-item>
-      <el-menu-item index="adminExcel" @click="toPage('adminExcel')">
-        <i class="el-icon-tickets"></i>
-        <span>Excel文件</span>
-      </el-menu-item>
-      <el-submenu index="6">
-        <template slot="title">
-          <i class="el-icon-video-play"></i>
-          <span>视频播放</span>
-        </template>
-        <el-menu-item
-          index="adminVideoXgPlayer"
-          @click="toPage('adminVideoXgPlayer')"
-          >xgPlayer</el-menu-item
-        >
-      </el-submenu>
-      <el-submenu index="7">
-        <template slot="title">
-          <i class="el-icon-help"></i>
-          <span>功能组件</span>
-        </template>
-        <el-menu-item
-          index="adminModuleSignature"
-          @click="toPage('adminModuleSignature')"
-          >电子签名</el-menu-item
-        >
-      </el-submenu>
-      <el-menu-item index="adminUpload" @click="toPage('adminUpload')">
-        <i class="el-icon-upload"></i>
-        <span>文件上传</span>
-      </el-menu-item>
-      <el-submenu index="9">
-        <template slot="title">
-          <i class="el-icon-edit-outline"></i>
-          <span>富文本编辑器</span>
-        </template>
-        <el-menu-item
-          index="adminEditerWangEditer"
-          @click="toPage('adminEditerWangEditer')"
-          >wangEditer</el-menu-item
-        >
-      </el-submenu>
+      <div v-for="(item, index) in list" :key="index">
+        <el-submenu :index="item.index" v-if="item.child">
+          <template slot="title">
+            <i :class="item.icon"></i>
+            <span v-show="!isCollapse">{{ item.title }}</span>
+          </template>
+          <el-menu-item
+            v-for="(items, indexs) in item.child"
+            :key="indexs + 's'"
+            :index="items.index"
+            @click="toPage(items.index)"
+            >{{ items.title }}</el-menu-item
+          >
+        </el-submenu>
+        <el-menu-item v-else :index="item.index" @click="toPage(item.index)">
+          <i :class="item.icon"></i>
+          <span v-show="!isCollapse">{{ item.title }}</span>
+        </el-menu-item>
+      </div>
     </el-menu>
   </div>
 </template>
@@ -101,6 +48,106 @@ export default {
     return {
       isCollapse: false,
       defaultActive: "",
+      list: [
+        {
+          index: "adminBusiness",
+          icon: "el-icon-copy-document",
+          title: "综合业务",
+          child: [
+            {
+              index: "adminBusinessArticleList",
+              title: "文章管理",
+            },
+          ],
+        },
+        {
+          index: "adminEcharts",
+          icon: "el-icon-pie-chart",
+          title: "ECharts图表",
+        },
+        {
+          index: "adminImg",
+          icon: "el-icon-picture-outline",
+          title: "图片文件",
+          child: [
+            {
+              index: "adminImgPreview",
+              title: "预览",
+            },
+            {
+              index: "adminImgExport",
+              title: "裁剪",
+            },
+            {
+              index: "adminImgExport",
+              title: "导出",
+            },
+          ],
+        },
+        {
+          index: "adminPdf",
+          icon: "el-icon-notebook-2",
+          title: "PDF文件",
+          child: [
+            {
+              index: "adminPdfPreview",
+              title: "预览",
+            },
+            {
+              index: "adminPdfExport",
+              title: "导出",
+            },
+          ],
+        },
+        {
+          index: "adminZip",
+          icon: "el-icon-s-cooperation",
+          title: "ZIP压缩包",
+        },
+        {
+          index: "adminExcel",
+          icon: "el-icon-tickets",
+          title: "Excel文件",
+        },
+        {
+          index: "adminVideo",
+          icon: "el-icon-video-play",
+          title: "视频播放",
+          child: [
+            {
+              index: "adminVideoXgPlayer",
+              title: "xgPlayer",
+            },
+          ],
+        },
+        {
+          index: "adminModule",
+          icon: "el-icon-help",
+          title: "功能组件",
+          child: [
+            {
+              index: "adminModuleSignature",
+              title: "电子签名",
+            },
+          ],
+        },
+        {
+          index: "adminUpload",
+          icon: "el-icon-upload",
+          title: "文件上传",
+        },
+        {
+          index: "adminEditer",
+          icon: "el-icon-edit-outline",
+          title: "富文本编辑器",
+          child: [
+            {
+              index: "adminEditerWangEditer",
+              title: "wangEditer",
+            },
+          ],
+        },
+      ],
     };
   },
   watch: {
