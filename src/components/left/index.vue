@@ -75,7 +75,7 @@ export default {
               title: "预览",
             },
             {
-              index: "adminImgExport",
+              index: "adminImgShear",
               title: "裁剪",
             },
             {

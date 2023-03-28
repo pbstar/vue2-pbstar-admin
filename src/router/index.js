@@ -71,6 +71,21 @@ const routes = [
         meta: { title: "Zip压缩文件" },
         component: resolve => (require(["@/views/admin/zip"], resolve)),
       }, {
+        path: "imgExport",
+        name: "adminImgExport",
+        meta: { title: "图片导出" },
+        component: resolve => (require(["@/views/admin/img/export"], resolve)),
+      }, {
+        path: "imgPreview",
+        name: "adminImgPreview",
+        meta: { title: "图片预览" },
+        component: resolve => (require(["@/views/admin/img/preview"], resolve)),
+      }, {
+        path: "imgShear",
+        name: "adminImgShear",
+        meta: { title: "图片裁剪" },
+        component: resolve => (require(["@/views/admin/img/shear"], resolve)),
+      }, {
         path: "*",
         name: "admin404",
         component: resolve => (require(["@/views/404"], resolve)),
