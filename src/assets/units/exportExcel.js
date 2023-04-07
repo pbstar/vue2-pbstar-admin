@@ -16,7 +16,7 @@ function exportExcel(objInfo) {
     excel += "<tr align='center'>"
     let th = obj.theadList[i]
     for (let h = 0; h < th.length; h++) {
-      excel += "<th colspan=" + th[h].colspan + " rowspan=" + th[h].rowspan + ">" + th[h].text + "</th>"
+      excel += "<th colspan=" + th[h].colspan + " rowspan=" + th[h].rowspan + " style=" + th[h].style + ">" + th[h].text + "</th>"
     }
     excel += "</tr>";
   }
@@ -24,7 +24,7 @@ function exportExcel(objInfo) {
     excel += "<tr align='center'>"
     let td = obj.tbodyList[i]
     for (let d = 0; d < td.length; d++) {
-      excel += "<td colspan=" + td[d].colspan + " rowspan=" + td[d].rowspan + ">" + td[d].text + "</td>"
+      excel += "<td colspan=" + td[d].colspan + " rowspan=" + td[d].rowspan + " style=" + td[d].style + ">" + td[d].text + "</td>"
     }
     excel += "</tr>";
   }
