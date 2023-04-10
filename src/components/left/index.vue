@@ -129,6 +129,10 @@ export default {
               index: "adminModuleSignature",
               title: "电子签名",
             },
+            {
+              index: "adminModuleVerificationCode",
+              title: "验证码",
+            },
           ],
         },
         {

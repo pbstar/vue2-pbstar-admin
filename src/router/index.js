@@ -46,6 +46,11 @@ const routes = [
         meta: { title: "电子签名" },
         component: resolve => (require(["@/views/admin/module/signature"], resolve)),
       }, {
+        path: "moduleVerificationCode",
+        name: "adminModuleVerificationCode",
+        meta: { title: "验证码" },
+        component: resolve => (require(["@/views/admin/module/verificationCode"], resolve)),
+      }, {
         path: "pdfExport",
         name: "adminPdfExport",
         meta: { title: "Pdf导出" },
