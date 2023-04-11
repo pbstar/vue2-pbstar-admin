@@ -22,6 +22,7 @@
     "vue-pdf": "^4.2.0",
     "vue-router": "^3.5.1",
     "wangeditor": "^4.7.15",
+    "xgplayer": "^2.32.2",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
