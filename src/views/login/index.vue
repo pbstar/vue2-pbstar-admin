@@ -20,7 +20,13 @@
           v-model="password"
         >
         </el-input>
-        <el-button class="btn" type="primary" @click="toLogin">登 录</el-button>
+        <el-button
+          class="btn"
+          type="primary"
+          @click="toLogin"
+          :loading="isLoading"
+          >登 录</el-button
+        >
       </div>
     </div>
   </div>
@@ -33,6 +39,7 @@ export default {
     return {
       username: "",
       password: "",
+      isLoading: false,
     };
   },
   methods: {
@@ -51,6 +58,7 @@ export default {
         });
         return;
       }
+      this.isLoading = true;
       this.$unit.setLocalStorage("username", this.username);
       this.$router.push({
         name: "adminHome",
