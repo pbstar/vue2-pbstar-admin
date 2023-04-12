@@ -26,10 +26,15 @@ const routes = [
         meta: { title: "文章管理" },
         component: resolve => (require(["@/views/admin/business/articleList"], resolve)),
       }, {
-        path: "echarts",
-        name: "adminEcharts",
+        path: "echartsIndex",
+        name: "adminEchartsIndex",
         meta: { title: "Echarts图表" },
         component: resolve => (require(["@/views/admin/echarts"], resolve)),
+      }, {
+        path: "echartsMap",
+        name: "adminEchartsMap",
+        meta: { title: "Echarts地图" },
+        component: resolve => (require(["@/views/admin/echarts/map"], resolve)),
       }, {
         path: "editerWangEditer",
         name: "adminEditerWangEditer",

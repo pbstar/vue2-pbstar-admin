@@ -64,6 +64,16 @@ export default {
           index: "adminEcharts",
           icon: "el-icon-pie-chart",
           title: "ECharts图表",
+          child: [
+            {
+              index: "adminEchartsIndex",
+              title: "普通图表",
+            },
+            {
+              index: "adminEchartsMap",
+              title: "地图",
+            },
+          ],
         },
         {
           index: "adminImg",
