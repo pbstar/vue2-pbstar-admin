@@ -1,17 +1,21 @@
 <template>
   <div>
     <div class="box">
-      <div class="boxs">
-        <div ref="map1" style="width: 380px; height: 300px"></div>
-        <p>折线图</p>
-      </div>
-      <div class="boxs">
-        <div ref="map2" style="width: 380px; height: 300px"></div>
-        <p>柱状图</p>
-      </div>
-      <div class="boxs">
-        <div ref="map3" style="width: 380px; height: 300px"></div>
-        <p>饼状图</p>
+      <h3>echarts官网：https://echarts.apache.org/examples/zh/index.html</h3>
+      <h3>其他echarts图表网站：https://madeapie.com/</h3>
+      <div class="main">
+        <div class="boxs">
+          <div ref="map1" style="width: 380px; height: 300px"></div>
+          <p>折线图</p>
+        </div>
+        <div class="boxs">
+          <div ref="map2" style="width: 380px; height: 300px"></div>
+          <p>柱状图</p>
+        </div>
+        <div class="boxs">
+          <div ref="map3" style="width: 380px; height: 300px"></div>
+          <p>饼状图</p>
+        </div>
       </div>
     </div>
   </div>
@@ -122,8 +126,10 @@ export default {
   margin: 10px;
   padding: 10px;
   min-height: calc(100% - 20px);
-  display: flex;
 
+  .main {
+    display: flex;
+  }
   .boxs {
     width: 380px;
     height: 350px;
