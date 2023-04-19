@@ -1,7 +1,9 @@
 <template>
   <div>
     <div class="box">
-      <div ref="map" style="width: 800px; height: 600px"></div>
+      <div style="width: 800px; height: 600px" v-loading="isloading">
+        <div ref="map" style="width: 800px; height: 600px"></div>
+      </div>
       <div ref="proMap" style="width: 480px; height: 600px"></div>
     </div>
   </div>
@@ -12,10 +14,13 @@ import * as echarts from "echarts";
 export default {
   name: "adminEchartsMap",
   data() {
-    return {};
+    return {
+      isloading: false,
+    };
   },
   mounted() {
     // 初始化地图
+    this.isloading = true;
     this.registerMap("中华人民共和国");
   },
   methods: {
@@ -82,7 +87,8 @@ export default {
           },
           top: 170,
           zoom: 1.6,
-          roam: false,
+          // roam: false,
+          roam: true,
           select: {
             itemStyle: {
               areaColor: "#71b8e8",
@@ -107,6 +113,7 @@ export default {
         ],
       };
       myChart.setOption(option);
+      this.isloading = false;
       myChart.on("click", (params) => {
         if (params.data && params.data.child) {
           this.registerMap(params.name, params.data.child);
