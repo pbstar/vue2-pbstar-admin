@@ -114,6 +114,8 @@ export default {
   /deep/ .el-menu-item {
     height: 45px;
     line-height: 45px;
+    display: flex;
+    align-items: center;
   }
   /deep/ .el-submenu__title {
     height: 45px;
@@ -130,6 +132,11 @@ export default {
   }
   /deep/ .el-submenu__title.is-active i {
     color: #409eff;
+  }
+  /deep/ .el-menu-item span {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
 }
 .midbox::-webkit-scrollbar {
