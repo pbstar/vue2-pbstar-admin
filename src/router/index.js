@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -20,6 +23,16 @@ const routes = [
         name: "adminHome",
         meta: { title: "首页" },
         component: resolve => (require(["@/views/admin/home"], resolve)),
+      }, {
+        path: "manager",
+        name: "adminManager",
+        meta: { title: "管理员管理" },
+        component: resolve => (require(["@/views/admin/manager"], resolve)),
+      }, {
+        path: "role",
+        name: "adminRole",
+        meta: { title: "角色管理" },
+        component: resolve => (require(["@/views/admin/role"], resolve)),
       }, {
         path: "businessArticleList",
         name: "adminBusinessArticleList",
@@ -122,7 +135,12 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+router.beforeEach((to, from, next) => {
+  NProgress.start()
+  next()
+})
 router.afterEach((to, from) => {
+  NProgress.done()
   if (to.meta.title) {
     document.title = to.meta.title
   } else {

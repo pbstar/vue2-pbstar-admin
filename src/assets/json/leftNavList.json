@@ -1,0 +1,124 @@
+[
+  {
+    "index": "adminManager",
+    "icon": "el-icon-user",
+    "title": "管理员管理"
+  },
+  {
+    "index": "adminBusiness",
+    "icon": "el-icon-copy-document",
+    "title": "综合业务",
+    "child": [
+      {
+        "index": "adminBusinessArticleList",
+        "title": "文章管理"
+      }
+    ]
+  },
+  {
+    "index": "adminEcharts",
+    "icon": "el-icon-pie-chart",
+    "title": "ECharts图表",
+    "child": [
+      {
+        "index": "adminEchartsIndex",
+        "title": "普通图表"
+      },
+      {
+        "index": "adminEchartsMap",
+        "title": "地图"
+      }
+    ]
+  },
+  {
+    "index": "adminImg",
+    "icon": "el-icon-picture-outline",
+    "title": "图片文件",
+    "child": [
+      {
+        "index": "adminImgPreview",
+        "title": "预览"
+      },
+      {
+        "index": "adminImgShear",
+        "title": "裁剪"
+      },
+      {
+        "index": "adminImgExport",
+        "title": "导出"
+      }
+    ]
+  },
+  {
+    "index": "adminPdf",
+    "icon": "el-icon-notebook-2",
+    "title": "PDF文件",
+    "child": [
+      {
+        "index": "adminPdfPreview",
+        "title": "预览"
+      },
+      {
+        "index": "adminPdfExport",
+        "title": "导出"
+      }
+    ]
+  },
+  {
+    "index": "adminZip",
+    "icon": "el-icon-s-cooperation",
+    "title": "ZIP压缩包"
+  },
+  {
+    "index": "adminExcel",
+    "icon": "el-icon-tickets",
+    "title": "Excel文件"
+  },
+  {
+    "index": "adminVideo",
+    "icon": "el-icon-video-play",
+    "title": "视频播放",
+    "child": [
+      {
+        "index": "adminVideoXgPlayer",
+        "title": "xgPlayer"
+      }
+    ]
+  },
+  {
+    "index": "adminModule",
+    "icon": "el-icon-help",
+    "title": "功能组件",
+    "child": [
+      {
+        "index": "adminModuleSignature",
+        "title": "电子签名"
+      },
+      {
+        "index": "adminModuleVerificationCode",
+        "title": "验证码"
+      }
+    ]
+  },
+  {
+    "index": "adminUpload",
+    "icon": "el-icon-upload",
+    "title": "文件上传"
+  },
+  {
+    "index": "adminEditer",
+    "icon": "el-icon-edit-outline",
+    "title": "富文本编辑器",
+    "child": [
+      {
+        "index": "adminEditerWangEditer",
+        "title": "wangEditer"
+      }
+    ]
+  },
+  {
+    "index": "adminRole",
+    "icon": "el-icon-connection",
+    "title": "角色管理"
+  }
+]

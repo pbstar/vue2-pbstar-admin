@@ -11,8 +11,8 @@ import {
   MenuItemGroup,
   Input,
   // InputNumber,
-  // Radio,
-  // RadioGroup,
+  Radio,
+  RadioGroup,
   // RadioButton,
   // Checkbox,
   // CheckboxButton,
@@ -38,7 +38,7 @@ import {
   // Tabs,
   // TabPane,
   // Tag,
-  // Tree,
+  Tree,
   Alert,
   // Slider,
   Icon,
@@ -92,8 +92,8 @@ const element = {
     Vue.use(MenuItemGroup);
     Vue.use(Input);
     // Vue.use(InputNumber);
-    // Vue.use(Radio);
-    // Vue.use(RadioGroup);
+    Vue.use(Radio);
+    Vue.use(RadioGroup);
     // Vue.use(RadioButton);
     // Vue.use(Checkbox);
     // Vue.use(CheckboxButton);
@@ -119,7 +119,7 @@ const element = {
     // Vue.use(Tabs);
     // Vue.use(TabPane);
     // Vue.use(Tag);
-    // Vue.use(Tree);
+    Vue.use(Tree);
     Vue.use(Alert);
     // Vue.use(Slider);
     Vue.use(Icon);
