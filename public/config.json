@@ -1,4 +1,4 @@
 {
-  "version": "2023.4.19.2",
-  "baseApi": "http://api.test.com/"
+  "version": "2023.7.24.1",
+  "baseApi": "http://localhost:6083/"
 }

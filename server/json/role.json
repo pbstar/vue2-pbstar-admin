@@ -1,0 +1,12 @@
+[
+  {
+    "id": "1",
+    "name": "超级管理员",
+    "limits": "adminHome"
+  },
+  {
+    "id": "2",
+    "name": "教师",
+    "limits": "adminHome"
+  }
+]
