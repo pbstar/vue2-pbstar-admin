@@ -43,14 +43,8 @@ export default {
       this.username = this.$unit.getLocalStorage("username");
     }
   },
-  mounted() {
-    this.$bus.$on("isCollapse", (e) => {
-      this.isCollapse = e;
-    });
-  },
-  beforeDestroy() {
-    this.$bus.$off("isCollapse");
-  },
+  mounted() {},
+  beforeDestroy() {},
   methods: {
     handleCommand(command) {
       if (command == "a") {
@@ -66,6 +60,7 @@ export default {
       });
     },
     toCollapse() {
+      this.isCollapse = !this.isCollapse;
       this.$bus.$emit("toCollapse");
     },
   },

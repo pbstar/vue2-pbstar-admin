@@ -4,7 +4,7 @@
       <adminLeft class="adminLeft" />
       <main>
         <adminTop />
-        <router-view :class="isCollapse ? 'sonpageCollapse' : 'sonpage'" />
+        <router-view class="sonpage" />
       </main>
     </div>
   </div>
@@ -20,25 +20,9 @@ export default {
     adminLeft,
   },
   data() {
-    return {
-      isCollapse: false,
-    };
+    return {};
   },
-  mounted() {
-    this.$bus.$on("isCollapse", (e) => {
-      if (e) {
-        this.isCollapse = e;
-      } else {
-        var timer = setTimeout(() => {
-          this.isCollapse = e;
-          clearTimeout(timer);
-        }, 300);
-      }
-    });
-  },
-  beforeDestroy() {
-    this.$bus.$off("isCollapse");
-  },
+  mounted() {},
 };
 </script>
 <style lang="scss" scoped>
@@ -65,13 +49,6 @@ export default {
 
     .sonpage {
       flex: 1;
-      width: calc(100vw - 201px);
-      background-color: #efefef;
-      overflow: auto;
-    }
-    .sonpageCollapse {
-      flex: 1;
-      width: calc(100vw - 65px);
       background-color: #efefef;
       overflow: auto;
     }

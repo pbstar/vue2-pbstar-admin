@@ -66,7 +66,6 @@ export default {
   mounted() {
     this.$bus.$on("toCollapse", () => {
       this.isCollapse = !this.isCollapse;
-      this.$bus.$emit("isCollapse", this.isCollapse);
     });
   },
   beforeDestroy() {
