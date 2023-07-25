@@ -1,12 +1,12 @@
 <template>
   <div>
-    <el-empty description="没有找到该页面"></el-empty>
+    <el-empty description="没有权限访问该页面"></el-empty>
   </div>
 </template>
 
 <script>
 export default {
-  name: "NoPage",
+  name: "NoAuthority",
 };
 </script>
 <style lang="scss" scoped>

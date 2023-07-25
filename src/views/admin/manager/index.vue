@@ -40,7 +40,11 @@
             prop="role"
             label="角色"
             min-width="80"
-          ></el-table-column>
+          >
+            <template slot-scope="scope">
+              <span>{{ getRole(scope.row.role) }}</span>
+            </template>
+          </el-table-column>
           <el-table-column
             prop="createTime"
             label="创建时间"
@@ -81,9 +85,12 @@
       </div>
       <el-dialog title="设置角色" :visible.sync="isShowRoleBox" width="500px">
         <el-radio-group v-model="radio">
-          <el-radio :label="1">超级管理员</el-radio>
-          <el-radio :label="6">市管理员</el-radio>
-          <el-radio :label="9">机构管理员</el-radio>
+          <el-radio
+            v-for="(item, index) in roleList"
+            :key="index"
+            :label="item.id"
+            >{{ item.name }}</el-radio
+          >
         </el-radio-group>
         <span slot="footer" class="dialog-footer">
           <el-button @click="isShowRoleBox = false">取 消</el-button>
@@ -101,6 +108,7 @@ export default {
     return {
       input: "",
       list: [],
+      roleList: [],
       isShowRoleBox: false,
       props: {
         label: "title",
@@ -111,6 +119,7 @@ export default {
   },
   created() {
     this.getList();
+    this.getRoleList();
   },
   methods: {
     getList() {
@@ -119,6 +128,22 @@ export default {
           this.list = res.data;
         }
       });
+    },
+    getRoleList() {
+      this.$http.post("getRoleList").then((res) => {
+        if (res.code == 200) {
+          this.roleList = res.data;
+        }
+      });
+    },
+    getRole(role) {
+      let text = "";
+      for (let i = 0; i < this.roleList.length; i++) {
+        if (this.roleList[i].id == role) {
+          text = this.roleList[i].name;
+        }
+      }
+      return text;
     },
     handleClick(row) {
       console.log(row);

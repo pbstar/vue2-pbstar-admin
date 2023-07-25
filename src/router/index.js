@@ -123,6 +123,12 @@ const routes = [
     component: resolve => (require(["@/views/login"], resolve)),
   },
   {
+    path: "/403",
+    name: "403",
+    meta: { title: "无权限访问" },
+    component: resolve => (require(["@/views/403"], resolve)),
+  },
+  {
     path: "*",
     name: "404",
     component: resolve => (require(["@/views/404"], resolve)),

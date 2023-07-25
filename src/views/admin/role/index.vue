@@ -46,7 +46,12 @@
               <el-switch v-model="scope.row.isRelease"> </el-switch>
             </template>
           </el-table-column>
-          <el-table-column fixed="right" label="操作" align="center">
+          <el-table-column
+            fixed="right"
+            label="操作"
+            align="center"
+            min-width="180"
+          >
             <template slot-scope="scope">
               <el-button
                 @click="handleClick(scope.row)"
@@ -55,7 +60,8 @@
                 >编辑</el-button
               >
               <el-button
-                @click="isShowAuthorityBox = true"
+                @click="toAuthorityBox(scope.row)"
+                v-show="scope.row.id != 1"
                 type="text"
                 size="small"
                 >设置权限</el-button
@@ -101,6 +107,7 @@ export default {
         label: "title",
         children: "child",
       },
+      rowInfo: null,
     };
   },
   created() {
@@ -118,8 +125,27 @@ export default {
     handleClick(row) {
       console.log(row);
     },
+    toAuthorityBox(e) {
+      this.rowInfo = e;
+      this.isShowAuthorityBox = true;
+      this.$nextTick(() => {
+        this.$refs.rootTree.setCheckedKeys(e.authority.split(","));
+      });
+    },
     getKeys() {
-      console.log(this.$refs.rootTree.getCheckedKeys());
+      let authority = this.$refs.rootTree.getCheckedKeys().join(",");
+      let id = this.rowInfo.id;
+      this.$http
+        .post("toAuthority", {
+          authority,
+          id,
+        })
+        .then((res) => {
+          if (res.code == 200) {
+            this.getList();
+            this.isShowAuthorityBox = false;
+          }
+        });
     },
   },
 };

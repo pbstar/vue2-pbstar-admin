@@ -23,6 +23,13 @@ export default {
               name: "login",
             });
           }
+          // let userAuthority = this.$unit.getLocalStorage("userAuthority");
+          // let userAuthorityArr = userAuthority ? userAuthority.split(",") : [];
+          // if (!userAuthorityArr.includes(to.name)) {
+          //   this.$router.push({
+          //     name: "403",
+          //   });
+          // }
         }
 
         this.$http.defaultGet("./config.json").then((res) => {

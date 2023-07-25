@@ -1,4 +1,5 @@
 import axios from "axios";
+import qs from 'qs';
 import config from "../../../public/config.json";
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
@@ -74,7 +75,7 @@ function post(url, data) {
   NProgress.start()
   return new Promise((resolve, reject) => {
     axios
-      .post(baseURL + url, data)
+      .post(baseURL + url, qs.stringify(data))
       .then((response) => {
         NProgress.done()
         resolve(response.data);
