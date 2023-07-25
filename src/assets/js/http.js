@@ -1,8 +1,11 @@
 import axios from "axios";
 import config from "../../../public/config.json";
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
+
 let baseURL = config.baseApi
 axios.defaults.timeout = 8000;//设置超时时间，单位毫秒
-axios.defaults.retry = 3; //设置全局请求次数
+axios.defaults.retry = 2; //设置全局请求次数
 axios.defaults.retryDelay = 1000;//设置全局请求间隙
 
 // http 响应拦截器
@@ -48,6 +51,7 @@ function defaultGet(url, d) {
   });
 }
 function get(url, d) {
+  NProgress.start()
   let data = new Object()
   if (d) data = d
   data.axiosTime = new Date().getTime()
@@ -57,21 +61,26 @@ function get(url, d) {
         params: data,
       })
       .then((response) => {
+        NProgress.done()
         resolve(response.data);
       })
       .catch((err) => {
+        NProgress.done()
         reject(err);
       });
   });
 }
 function post(url, data) {
+  NProgress.start()
   return new Promise((resolve, reject) => {
     axios
       .post(baseURL + url, data)
       .then((response) => {
+        NProgress.done()
         resolve(response.data);
       })
       .catch((err) => {
+        NProgress.done()
         reject(err);
       });
   });

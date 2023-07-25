@@ -8,7 +8,9 @@
             style="width: 200px"
             placeholder="请输入内容"
           ></el-input>
-          <el-button type="primary" style="margin-left: 10px">搜索</el-button>
+          <el-button type="primary" style="margin-left: 10px" @click="getList"
+            >搜索</el-button
+          >
         </div>
         <div class="tRight">
           <el-button type="primary">添加</el-button>
@@ -107,33 +109,11 @@ export default {
   },
   methods: {
     getList() {
-      this.list = [
-        {
-          name: "超级管理员",
-          createTime: "2023-03-25 12:23:34",
-          isActive: 0,
-        },
-        {
-          name: "机构管理员",
-          createTime: "2023-03-25 12:23:34",
-          isActive: 0,
-        },
-        {
-          name: "市管理员",
-          createTime: "2023-03-25 12:23:34",
-          isActive: 0,
-        },
-        {
-          name: "区管理员",
-          createTime: "2023-03-25 12:23:34",
-          isActive: 0,
-        },
-        {
-          name: "教师",
-          createTime: "2023-03-25 12:23:34",
-          isActive: 0,
-        },
-      ];
+      this.$http.post("getRoleList").then((res) => {
+        if (res.code == 200) {
+          this.list = res.data;
+        }
+      });
     },
     handleClick(row) {
       console.log(row);

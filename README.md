@@ -16,6 +16,10 @@ npm run serve
 
 # Compiles and minifies for production
 npm run build
+
+# Start server
+npm run server
+
 ```
 ## 目录结构
 ```
@@ -23,6 +27,11 @@ npm run build
 │ │── favicon.ico      # 网页图标 
 │ │── config.json      # 全局配置文件 
 │ └── index.html       # html模板 
+├── server             # 服务端代码 
+│ ├── json             # json数据库 
+│ │ │── role.json      # 角色表
+│ │ └── user.json      # 用户表
+│ └── app.js           # 服务端入口文件 
 ├── src                # 源代码 
 │ ├── assets           # 静态资源 
 │ │ │── css            # 公共css文件 

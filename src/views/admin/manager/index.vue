@@ -8,7 +8,9 @@
             style="width: 200px"
             placeholder="请输入内容"
           ></el-input>
-          <el-button type="primary" style="margin-left: 10px">搜索</el-button>
+          <el-button type="primary" style="margin-left: 10px" @click="getList"
+            >搜索</el-button
+          >
         </div>
         <div class="tRight">
           <el-button type="primary">添加</el-button>
@@ -56,7 +58,12 @@
               <el-switch v-model="scope.row.isRelease"> </el-switch>
             </template>
           </el-table-column>
-          <el-table-column fixed="right" label="操作" align="center">
+          <el-table-column
+            fixed="right"
+            label="操作"
+            align="center"
+            min-width="180"
+          >
             <template slot-scope="scope">
               <el-button
                 @click="handleClick(scope.row)"
@@ -107,29 +114,11 @@ export default {
   },
   methods: {
     getList() {
-      this.list = [
-        {
-          name: "超管",
-          account: "admin",
-          role: "超级管理员",
-          createTime: "2023-03-25 12:23:34",
-          isActive: 0,
-        },
-        {
-          name: "李铁岗",
-          account: "15555222865",
-          role: "机构管理员",
-          createTime: "2023-03-25 12:23:34",
-          isActive: 0,
-        },
-        {
-          name: "宁伟",
-          account: "18888888888",
-          role: "教师",
-          createTime: "2023-03-25 12:23:34",
-          isActive: 0,
-        },
-      ];
+      this.$http.post("getUserList").then((res) => {
+        if (res.code == 200) {
+          this.list = res.data;
+        }
+      });
     },
     handleClick(row) {
       console.log(row);

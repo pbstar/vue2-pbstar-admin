@@ -1,12 +1,27 @@
 [
   {
-    "id": "1",
     "name": "超级管理员",
-    "limits": "adminHome"
+    "createTime": "2023-03-25 12:23:34",
+    "isActive": 0
   },
   {
-    "id": "2",
+    "name": "机构管理员",
+    "createTime": "2023-03-25 12:23:34",
+    "isActive": 0
+  },
+  {
+    "name": "市管理员",
+    "createTime": "2023-03-25 12:23:34",
+    "isActive": 0
+  },
+  {
+    "name": "区管理员",
+    "createTime": "2023-03-25 12:23:34",
+    "isActive": 0
+  },
+  {
     "name": "教师",
-    "limits": "adminHome"
+    "createTime": "2023-03-25 12:23:34",
+    "isActive": 0
   }
 ]
