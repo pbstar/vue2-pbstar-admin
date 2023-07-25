@@ -75,7 +75,7 @@
                 size="small"
                 >编辑</el-button
               >
-              <el-button @click="isShowRoleBox = true" type="text" size="small"
+              <el-button @click="toRole(scope.row)" type="text" size="small"
                 >设置角色</el-button
               >
               <el-button type="text" size="small">删除</el-button>
@@ -114,7 +114,7 @@ export default {
         label: "title",
         children: "child",
       },
-      radio: 1,
+      radio: 0,
     };
   },
   created() {
@@ -144,6 +144,10 @@ export default {
         }
       }
       return text;
+    },
+    toRole(e) {
+      this.radio = e.role;
+      this.isShowRoleBox = true;
     },
     handleClick(row) {
       console.log(row);

@@ -37,16 +37,6 @@
           >
           </el-table-column>
           <el-table-column
-            prop="isActive"
-            label="状态"
-            width="100"
-            align="center"
-          >
-            <template slot-scope="scope">
-              <el-switch v-model="scope.row.isRelease"> </el-switch>
-            </template>
-          </el-table-column>
-          <el-table-column
             fixed="right"
             label="操作"
             align="center"
