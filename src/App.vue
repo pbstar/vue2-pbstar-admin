@@ -10,7 +10,7 @@ export default {
     $route: {
       handler(to, from) {
         if (to.matched.length > 0 && to.matched[0].name == "admin") {
-          if (!this.$unit.getLocalStorage("username")) {
+          if (!this.$unit.getLocalStorage("userName")) {
             this.$notify({
               title: "提示",
               message: "登录失效，请重新登陆！",

@@ -37,8 +37,8 @@ export default {
   name: "login",
   data() {
     return {
-      username: "测试",
-      password: "123",
+      username: "admin",
+      password: "12345678",
       isLoading: false,
     };
   },
@@ -59,10 +59,28 @@ export default {
         return;
       }
       this.isLoading = true;
-      this.$unit.setLocalStorage("username", this.username);
-      this.$router.push({
-        name: "adminHome",
-      });
+      this.$http
+        .post("toLogin", {
+          account: this.username,
+          password: this.password,
+        })
+        .then((res) => {
+          if (res.code == 200) {
+            this.isLoading = false;
+            this.$unit.setLocalStorage("userName", res.data.name);
+            this.$unit.setLocalStorage("userAccount", res.data.account);
+            this.$unit.setLocalStorage("userAuthority", res.data.authority);
+            this.$router.push({
+              name: "adminHome",
+            });
+          } else {
+            this.isLoading = false;
+            this.$message({
+              message: res.msg,
+              type: "warning",
+            });
+          }
+        });
     },
   },
 };

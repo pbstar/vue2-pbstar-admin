@@ -28,14 +28,9 @@ http.createServer((request, response) => {
     } else if (request.url === '/getRoleList') {
       r.data = roleList
     } else if (request.url === '/toLogin') {
-      r.data = roleList
+      r = toLogin(data, r)
     } else if (request.url === '/toAuthority') {
-      for (let i = 0; i < roleList.length; i++) {
-        if (roleList[i].id == data.id) {
-          roleList[i].authority = data.authority
-        }
-      }
-      changeFile('role.json', roleList)
+      r = toAuthority(data, r)
     } else {
       response.statusCode = 404;
       r = "404 not found this api"
@@ -43,7 +38,7 @@ http.createServer((request, response) => {
     response.end(JSON.stringify(r));
   });
 }).listen(6083, () => {
-  console.log("服务器开启成功：http://localhost:6083")
+  console.log('服务器开启成功：' + '\x1B[36mhttp://localhost:6083\x1B[0m')
 });
 
 function changeFile(filename, text) {
@@ -52,4 +47,43 @@ function changeFile(filename, text) {
     flags: 'w'
   })
   writeStream.write(JSON.stringify(text))
+}
+function toLogin(data, r) {
+  let info = ''
+  for (let i = 0; i < userList.length; i++) {
+    if (userList[i].account == data.account) {
+      info = userList[i]
+    }
+  }
+  if (info == '' || info.isDelete == 1) {
+    r.code = 101
+    r.msg = '没有找到用户信息'
+    return r
+  }
+  if (info.password != data.password) {
+    r.code = 102
+    r.msg = '密码错误'
+    return r
+  }
+  if (info.isActive == 1) {
+    r.code = 102
+    r.msg = '您的帐号已被禁用'
+    return r
+  }
+  for (let i = 0; i < roleList.length; i++) {
+    if (roleList[i].id == info.role) {
+      info.authority = roleList[i].authority
+    }
+  }
+  r.data = info
+  return r
+}
+function toAuthority(data, r) {
+  for (let i = 0; i < roleList.length; i++) {
+    if (roleList[i].id == data.id) {
+      roleList[i].authority = data.authority
+    }
+  }
+  changeFile('role.json', roleList)
+  return r
 }

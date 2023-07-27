@@ -39,8 +39,8 @@ export default {
     };
   },
   created() {
-    if (this.$unit.getLocalStorage("username")) {
-      this.username = this.$unit.getLocalStorage("username");
+    if (this.$unit.getLocalStorage("userName")) {
+      this.username = this.$unit.getLocalStorage("userName");
     }
   },
   mounted() {},
@@ -53,7 +53,7 @@ export default {
     },
     toExit() {
       this.$confirm("确认退出登录吗？").then(() => {
-        this.$unit.removeLocalStorage("username");
+        this.$unit.clearLocalStorage();
         this.$router.push({
           name: "login",
         });

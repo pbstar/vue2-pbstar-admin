@@ -2,22 +2,28 @@
   {
     "name": "超管",
     "account": "admin",
+    "password": "12345678",
     "role": 1,
     "createTime": "2023-03-25 12:23:34",
-    "isActive": 0
+    "isActive": 0,
+    "isDelete": 0
   },
   {
     "name": "李铁岗",
     "account": "15555222865",
+    "password": "12345678",
     "role": 2,
     "createTime": "2023-03-25 12:23:34",
-    "isActive": 0
+    "isActive": 0,
+    "isDelete": 0
   },
   {
     "name": "赵磊",
     "account": "18888888888",
+    "password": "12345678",
     "role": 3,
     "createTime": "2023-03-25 12:23:34",
-    "isActive": 0
+    "isActive": 0,
+    "isDelete": 0
   }
 ]
