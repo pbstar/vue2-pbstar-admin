@@ -30,6 +30,12 @@
             min-width="130"
           ></el-table-column>
           <el-table-column
+            align="center"
+            prop="description"
+            label="角色描述"
+            min-width="130"
+          ></el-table-column>
+          <el-table-column
             prop="createTime"
             label="创建时间"
             min-width="180"
@@ -56,7 +62,13 @@
                 size="small"
                 >设置权限</el-button
               >
-              <el-button type="text" size="small">删除</el-button>
+              <el-button
+                type="text"
+                size="small"
+                v-show="scope.row.id != 1"
+                @click="toDel(scope.row)"
+                >删除</el-button
+              >
             </template>
           </el-table-column>
         </el-table>
@@ -140,6 +152,12 @@ export default {
             this.isShowAuthorityBox = false;
           }
         });
+    },
+    toDel(e) {
+      this.$message({
+        message: "暂不支持删除",
+        type: "warning",
+      });
     },
   },
 };

@@ -1,5 +1,5 @@
 const http = require('http');
-
+const qs = require('qs')
 var fs = require('fs');
 var path = require('path');
 var querystring = require('querystring');
@@ -15,7 +15,7 @@ http.createServer((request, response) => {
     data += chunk;
   });
   request.on('end', function () {
-    data = querystring.parse(decodeURI(data));
+    data = qs.parse(querystring.parse(decodeURI(data)));
     let r = {
       code: 200,
       data: null,
@@ -35,6 +35,8 @@ http.createServer((request, response) => {
       r = toRole(data, r)
     } else if (request.url === '/toUserActive') {
       r = toUserActive(data, r)
+    } else if (request.url === '/toUser') {
+      r = toUser(data, r)
     } else {
       response.statusCode = 404;
       r = "404 not found this api"
@@ -105,6 +107,19 @@ function toUserActive(data, r) {
     if (userList[i].account == data.account) {
       userList[i].isActive = Number(data.isActive)
     }
+  }
+  changeFile('user.json', userList)
+  return r
+}
+function toUser(data, r) {
+  if (data.isEdit == 'true') {
+    for (let i = 0; i < userList.length; i++) {
+      if (userList[i].account == data.info.account) {
+        userList[i] = data.info
+      }
+    }
+  } else {
+    userList.push(data.info)
   }
   changeFile('user.json', userList)
   return r

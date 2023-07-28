@@ -13,7 +13,7 @@
           >
         </div>
         <div class="tRight">
-          <el-button type="primary">添加</el-button>
+          <el-button type="primary" @click="toAdd">添加</el-button>
         </div>
       </div>
       <div class="table">
@@ -86,7 +86,13 @@
                 v-show="scope.row.account != 'admin'"
                 >设置角色</el-button
               >
-              <el-button type="text" size="small">删除</el-button>
+              <el-button
+                type="text"
+                size="small"
+                v-show="scope.row.account != 'admin'"
+                @click="toDel(scope.row)"
+                >删除</el-button
+              >
             </template>
           </el-table-column>
         </el-table>
@@ -103,6 +109,50 @@
         <span slot="footer" class="dialog-footer">
           <el-button @click="isShowRoleBox = false">取 消</el-button>
           <el-button type="primary" @click="toRole()">确 定</el-button>
+        </span>
+      </el-dialog>
+      <el-dialog
+        :title="isEdit ? '编辑管理员' : '添加管理员'"
+        :visible.sync="isShowUserInfoBox"
+        width="500px"
+      >
+        <el-form label-width="52px">
+          <el-form-item label="姓名" required>
+            <el-input
+              v-model="userInfo.name"
+              placeholder="请输入姓名"
+            ></el-input>
+          </el-form-item>
+          <el-form-item label="账号" required>
+            <el-input
+              v-model="userInfo.account"
+              :readonly="isEdit"
+              placeholder="请输入账号"
+            ></el-input>
+          </el-form-item>
+          <el-form-item label="密码" required>
+            <el-input
+              v-model="userInfo.password"
+              placeholder="请输入密码"
+            ></el-input>
+          </el-form-item>
+          <el-form-item label="角色" required>
+            <el-select v-model="userInfo.role" placeholder="请选择角色">
+              <el-option
+                v-for="(item, index) in roleList"
+                :key="index"
+                :label="item.name"
+                :value="item.id"
+              ></el-option>
+            </el-select>
+          </el-form-item>
+          <el-form-item label="状态" required>
+            <el-switch v-model="userInfo.isActive"> </el-switch>
+          </el-form-item>
+        </el-form>
+        <span slot="footer" class="dialog-footer">
+          <el-button @click="isShowUserInfoBox = false">取 消</el-button>
+          <el-button type="primary" @click="toUser()">确 定</el-button>
         </span>
       </el-dialog>
     </div>
@@ -124,6 +174,17 @@ export default {
       },
       radio: 0,
       rowInfo: "",
+      userInfo: {
+        name: "",
+        account: "",
+        password: "",
+        role: 1,
+        createTime: "2023-01-01 12:00:00",
+        isActive: 0,
+        isDelete: 0,
+      },
+      isEdit: false,
+      isShowUserInfoBox: false,
     };
   },
   created() {
@@ -195,7 +256,71 @@ export default {
         });
     },
     handleClick(row) {
-      console.log(row);
+      this.userInfo = row;
+      this.isEdit = true;
+      this.isShowUserInfoBox = true;
+    },
+    toDel(e) {
+      this.$message({
+        message: "暂不支持删除",
+        type: "warning",
+      });
+    },
+    toAdd() {
+      this.userInfo = {
+        name: "",
+        account: "",
+        password: "",
+        role: 1,
+        createTime: "2023-01-01 12:00:00",
+        isActive: true,
+        isDelete: 0,
+      };
+      this.isEdit = false;
+      this.isShowUserInfoBox = true;
+    },
+    toUser() {
+      if (!this.userInfo.name) {
+        this.$message({
+          message: "姓名不能为空！",
+          type: "warning",
+        });
+        return;
+      }
+      if (!this.userInfo.account) {
+        this.$message({
+          message: "账号不能为空！",
+          type: "warning",
+        });
+        return;
+      }
+      if (!this.userInfo.password) {
+        this.$message({
+          message: "密码不能为空！",
+          type: "warning",
+        });
+        return;
+      }
+      this.userInfo.isActive = this.userInfo.isActive ? 0 : 1;
+      console.log({
+        info: this.userInfo,
+        isEdit: this.isEdit,
+      });
+      this.$http
+        .post("toUser", {
+          info: this.userInfo,
+          isEdit: this.isEdit,
+        })
+        .then((res) => {
+          if (res.code == 200) {
+            this.getList();
+            this.isShowUserInfoBox = false;
+            this.$message({
+              message: this.isEdit ? "修改成功" : "添加成功",
+              type: "success",
+            });
+          }
+        });
     },
   },
 };

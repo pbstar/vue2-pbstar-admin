@@ -2,6 +2,7 @@
   {
     "id": 1,
     "name": "超级管理员",
+    "description": "admin",
     "createTime": "2023-03-25 12:23:34",
     "isDelete": 0,
     "authority": "adminHome,adminManager,adminBusiness,adminBusinessArticleList,adminEcharts,adminEchartsIndex,adminEchartsMap,adminImg,adminImgPreview,adminImgShear,adminImgExport,adminPdf,adminPdfPreview,adminPdfExport,adminZip,adminExcel,adminVideo,adminVideoXgPlayer,adminModule,adminModuleSignature,adminModuleVerificationCode,adminUpload,adminEditer,adminEditerWangEditer,adminRole"
@@ -9,6 +10,7 @@
   {
     "id": 2,
     "name": "机构管理员",
+    "description": "",
     "createTime": "2023-03-25 12:23:34",
     "isDelete": 0,
     "authority": "adminHome,adminModuleSignature,adminUpload,adminRole"
@@ -16,6 +18,7 @@
   {
     "id": 3,
     "name": "市管理员",
+    "description": "",
     "createTime": "2023-03-25 12:23:34",
     "isDelete": 0,
     "authority": "adminHome,adminRole"
@@ -23,6 +26,7 @@
   {
     "id": 4,
     "name": "区管理员",
+    "description": "",
     "createTime": "2023-03-25 12:23:34",
     "isDelete": 0,
     "authority": "adminHome,adminRole"
@@ -30,6 +34,7 @@
   {
     "id": 5,
     "name": "教师",
+    "description": "",
     "createTime": "2023-03-25 12:23:34",
     "isDelete": 0,
     "authority": "adminHome,adminRole"

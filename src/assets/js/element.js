@@ -33,8 +33,8 @@ import {
   // Tooltip,
   Breadcrumb,
   BreadcrumbItem,
-  // Form,
-  // FormItem,
+  Form,
+  FormItem,
   // Tabs,
   // TabPane,
   // Tag,
@@ -114,8 +114,8 @@ const element = {
     // Vue.use(Tooltip);
     Vue.use(Breadcrumb);
     Vue.use(BreadcrumbItem);
-    // Vue.use(Form);
-    // Vue.use(FormItem);
+    Vue.use(Form);
+    Vue.use(FormItem);
     // Vue.use(Tabs);
     // Vue.use(TabPane);
     // Vue.use(Tag);
