@@ -59,7 +59,11 @@
             align="center"
           >
             <template slot-scope="scope">
-              <el-switch v-model="scope.row.isRelease"> </el-switch>
+              <el-switch
+                v-model="scope.row.isActive"
+                @change="toUserActive(scope.row)"
+              >
+              </el-switch>
             </template>
           </el-table-column>
           <el-table-column
@@ -75,7 +79,11 @@
                 size="small"
                 >编辑</el-button
               >
-              <el-button @click="toRoleBox(scope.row)" type="text" size="small"
+              <el-button
+                @click="toRoleBox(scope.row)"
+                type="text"
+                size="small"
+                v-show="scope.row.account != 'admin'"
                 >设置角色</el-button
               >
               <el-button type="text" size="small">删除</el-button>
@@ -126,6 +134,9 @@ export default {
     getList() {
       this.$http.post("getUserList").then((res) => {
         if (res.code == 200) {
+          for (let i = 0; i < res.data.length; i++) {
+            res.data[i].isActive = res.data[i].isActive == 0;
+          }
           this.list = res.data;
         }
       });
@@ -165,6 +176,21 @@ export default {
               type: "success",
             });
             this.isShowRoleBox = false;
+          }
+        });
+    },
+    toUserActive(e) {
+      this.$http
+        .post("toUserActive", {
+          account: e.account,
+          isActive: e.isActive ? 0 : 1,
+        })
+        .then((res) => {
+          if (res.code == 200) {
+            this.$message({
+              message: "修改状态成功",
+              type: "success",
+            });
           }
         });
     },
