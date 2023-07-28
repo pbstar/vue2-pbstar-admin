@@ -37,6 +37,8 @@ http.createServer((request, response) => {
       r = toUserActive(data, r)
     } else if (request.url === '/toUser') {
       r = toUser(data, r)
+    } else if (request.url === '/toRoleItem') {
+      r = toRoleItem(data, r)
     } else {
       response.statusCode = 404;
       r = "404 not found this api"
@@ -122,5 +124,18 @@ function toUser(data, r) {
     userList.push(data.info)
   }
   changeFile('user.json', userList)
+  return r
+}
+function toRoleItem(data, r) {
+  if (data.isEdit == 'true') {
+    for (let i = 0; i < roleList.length; i++) {
+      if (roleList[i].id == data.info.id) {
+        roleList[i] = data.info
+      }
+    }
+  } else {
+    roleList.push(data.info)
+  }
+  changeFile('role.json', roleList)
   return r
 }

@@ -32,11 +32,19 @@
     "authority": "adminHome,adminRole"
   },
   {
-    "id": 5,
+    "id": "5",
     "name": "教师",
-    "description": "",
+    "description": "1",
     "createTime": "2023-03-25 12:23:34",
-    "isDelete": 0,
+    "isDelete": "0",
     "authority": "adminHome,adminRole"
+  },
+  {
+    "id": "6",
+    "name": "组长",
+    "description": "11",
+    "createTime": "2023-01-01 12:00:00",
+    "isDelete": "0",
+    "authority": "adminHome,adminUpload"
   }
 ]

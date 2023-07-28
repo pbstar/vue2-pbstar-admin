@@ -13,7 +13,7 @@
           >
         </div>
         <div class="tRight">
-          <el-button type="primary">添加</el-button>
+          <el-button type="primary" @click="toAdd">添加</el-button>
         </div>
       </div>
       <div class="table">
@@ -91,6 +91,30 @@
           <el-button type="primary" @click="getKeys()">确 定</el-button>
         </span>
       </el-dialog>
+      <el-dialog
+        :title="isEdit ? '编辑角色' : '添加角色'"
+        :visible.sync="isShowRoleInfoBox"
+        width="500px"
+      >
+        <el-form label-width="80px">
+          <el-form-item label="角色名称" required>
+            <el-input
+              v-model="roleInfo.name"
+              placeholder="请输入角色名称"
+            ></el-input>
+          </el-form-item>
+          <el-form-item label="角色描述" required>
+            <el-input
+              v-model="roleInfo.description"
+              placeholder="请输入角色描述"
+            ></el-input>
+          </el-form-item>
+        </el-form>
+        <span slot="footer" class="dialog-footer">
+          <el-button @click="isShowRoleInfoBox = false">取 消</el-button>
+          <el-button type="primary" @click="toRoleItem()">确 定</el-button>
+        </span>
+      </el-dialog>
     </div>
   </div>
 </template>
@@ -110,6 +134,16 @@ export default {
         children: "child",
       },
       rowInfo: null,
+      roleInfo: {
+        id: 0,
+        name: "",
+        description: "",
+        createTime: "2023-01-01 12:00:00",
+        isDelete: 0,
+        authority: "adminHome",
+      },
+      isEdit: false,
+      isShowRoleInfoBox: false,
     };
   },
   created() {
@@ -125,7 +159,9 @@ export default {
       });
     },
     handleClick(row) {
-      console.log(row);
+      this.roleInfo = row;
+      this.isEdit = true;
+      this.isShowRoleInfoBox = true;
     },
     toAuthorityBox(e) {
       this.rowInfo = e;
@@ -158,6 +194,52 @@ export default {
         message: "暂不支持删除",
         type: "warning",
       });
+    },
+    toAdd() {
+      this.roleInfo = {
+        id: 0,
+        name: "",
+        description: "",
+        createTime: "2023-01-01 12:00:00",
+        isDelete: 0,
+        authority: "adminHome",
+      };
+      this.isEdit = false;
+      this.isShowRoleInfoBox = true;
+    },
+    toRoleItem() {
+      if (!this.roleInfo.name) {
+        this.$message({
+          message: "角色名称不能为空！",
+          type: "warning",
+        });
+        return;
+      }
+      if (!this.roleInfo.description) {
+        this.$message({
+          message: "角色描述不能为空！",
+          type: "warning",
+        });
+        return;
+      }
+      if (!this.isEdit) {
+        this.roleInfo.id = this.list.length + 1;
+      }
+      this.$http
+        .post("toRoleItem", {
+          info: this.roleInfo,
+          isEdit: this.isEdit,
+        })
+        .then((res) => {
+          if (res.code == 200) {
+            this.getList();
+            this.isShowRoleInfoBox = false;
+            this.$message({
+              message: this.isEdit ? "修改成功" : "添加成功",
+              type: "success",
+            });
+          }
+        });
     },
   },
 };

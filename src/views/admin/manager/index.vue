@@ -302,10 +302,6 @@ export default {
         return;
       }
       this.userInfo.isActive = this.userInfo.isActive ? 0 : 1;
-      console.log({
-        info: this.userInfo,
-        isEdit: this.isEdit,
-      });
       this.$http
         .post("toUser", {
           info: this.userInfo,
