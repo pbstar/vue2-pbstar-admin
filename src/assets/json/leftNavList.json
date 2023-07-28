@@ -1,5 +1,10 @@
 [
   {
+    "index": "adminHome",
+    "icon": "el-icon-user",
+    "title": "首页"
+  },
+  {
     "index": "adminManager",
     "icon": "el-icon-user",
     "title": "管理员管理"

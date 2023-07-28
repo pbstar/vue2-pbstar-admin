@@ -61,7 +61,7 @@ export default {
     },
   },
   created() {
-    this.list = leftNavList;
+    this.getList();
   },
   mounted() {
     this.$bus.$on("toCollapse", () => {
@@ -72,6 +72,37 @@ export default {
     this.$bus.$off("toCollapse");
   },
   methods: {
+    getList() {
+      let userAuthority = this.$unit.getLocalStorage("userAuthority");
+      let userAuthorityArr = userAuthority ? userAuthority.split(",") : [];
+      let item = "";
+      for (let i = 0; i < leftNavList.length; i++) {
+        if (userAuthorityArr.includes(leftNavList[i].index)) {
+          this.list.push(leftNavList[i]);
+        } else {
+          if (leftNavList[i].child) {
+            for (let j = 0; j < leftNavList[i].child.length; j++) {
+              if (userAuthorityArr.includes(leftNavList[i].child[j].index)) {
+                if (item) {
+                  item.child.push(leftNavList[i].child[j]);
+                } else {
+                  item = {
+                    index: leftNavList[i].index,
+                    icon: leftNavList[i].icon,
+                    title: leftNavList[i].title,
+                    child: [leftNavList[i].child[j]],
+                  };
+                }
+              }
+            }
+            if (item) {
+              this.list.push(item);
+              item = "";
+            }
+          }
+        }
+      }
+    },
     toPage(name) {
       this.$router.push({
         name,
