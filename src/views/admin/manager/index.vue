@@ -75,7 +75,7 @@
                 size="small"
                 >编辑</el-button
               >
-              <el-button @click="toRole(scope.row)" type="text" size="small"
+              <el-button @click="toRoleBox(scope.row)" type="text" size="small"
                 >设置角色</el-button
               >
               <el-button type="text" size="small">删除</el-button>
@@ -94,7 +94,7 @@
         </el-radio-group>
         <span slot="footer" class="dialog-footer">
           <el-button @click="isShowRoleBox = false">取 消</el-button>
-          <el-button type="primary" @click="getKeys()">确 定</el-button>
+          <el-button type="primary" @click="toRole()">确 定</el-button>
         </span>
       </el-dialog>
     </div>
@@ -115,6 +115,7 @@ export default {
         children: "child",
       },
       radio: 0,
+      rowInfo: "",
     };
   },
   created() {
@@ -145,9 +146,27 @@ export default {
       }
       return text;
     },
-    toRole(e) {
+    toRoleBox(e) {
+      this.rowInfo = e;
       this.radio = e.role;
       this.isShowRoleBox = true;
+    },
+    toRole() {
+      this.$http
+        .post("toRole", {
+          account: this.rowInfo.account,
+          role: this.radio,
+        })
+        .then((res) => {
+          if (res.code == 200) {
+            this.getList();
+            this.$message({
+              message: "设置成功",
+              type: "success",
+            });
+            this.isShowRoleBox = false;
+          }
+        });
     },
     handleClick(row) {
       console.log(row);
@@ -185,6 +204,9 @@ export default {
       display: flex;
       justify-content: center;
     }
+  }
+  /deep/ .el-radio {
+    margin-bottom: 10px;
   }
 }
 </style>

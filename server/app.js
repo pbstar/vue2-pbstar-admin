@@ -31,6 +31,8 @@ http.createServer((request, response) => {
       r = toLogin(data, r)
     } else if (request.url === '/toAuthority') {
       r = toAuthority(data, r)
+    } else if (request.url === '/toRole') {
+      r = toRole(data, r)
     } else {
       response.statusCode = 404;
       r = "404 not found this api"
@@ -85,5 +87,14 @@ function toAuthority(data, r) {
     }
   }
   changeFile('role.json', roleList)
+  return r
+}
+function toRole(data, r) {
+  for (let i = 0; i < userList.length; i++) {
+    if (userList[i].account == data.account) {
+      userList[i].role = Number(data.role)
+    }
+  }
+  changeFile('user.json', userList)
   return r
 }

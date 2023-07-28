@@ -133,6 +133,10 @@ export default {
         .then((res) => {
           if (res.code == 200) {
             this.getList();
+            this.$message({
+              message: "设置成功",
+              type: "success",
+            });
             this.isShowAuthorityBox = false;
           }
         });
