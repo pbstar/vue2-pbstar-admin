@@ -24,9 +24,9 @@ http.createServer((request, response) => {
     if (request.url === '/') {
       r = "vue2-pbstar-admin server"
     } else if (request.url === '/getUserList') {
-      r.data = userList
+      r = getUserList(r)
     } else if (request.url === '/getRoleList') {
-      r.data = roleList
+      r = getRoleList(r)
     } else if (request.url === '/toLogin') {
       r = toLogin(data, r)
     } else if (request.url === '/toAuthority') {
@@ -55,6 +55,26 @@ function changeFile(filename, text) {
     flags: 'w'
   })
   writeStream.write(JSON.stringify(text))
+}
+function getUserList(r) {
+  let list = []
+  for (let i = 0; i < userList.length; i++) {
+    if (userList[i].isDelete == 0) {
+      list.push(userList[i])
+    }
+  }
+  r.data = list
+  return r
+}
+function getRoleList(r) {
+  let list = []
+  for (let i = 0; i < roleList.length; i++) {
+    if (roleList[i].isDelete == 0) {
+      list.push(roleList[i])
+    }
+  }
+  r.data = list
+  return r
 }
 function toLogin(data, r) {
   let info = ''
@@ -98,7 +118,7 @@ function toAuthority(data, r) {
 function toRole(data, r) {
   for (let i = 0; i < userList.length; i++) {
     if (userList[i].account == data.account) {
-      userList[i].role = Number(data.role)
+      userList[i].role = data.role
     }
   }
   changeFile('user.json', userList)
@@ -107,7 +127,7 @@ function toRole(data, r) {
 function toUserActive(data, r) {
   for (let i = 0; i < userList.length; i++) {
     if (userList[i].account == data.account) {
-      userList[i].isActive = Number(data.isActive)
+      userList[i].isActive = data.isActive
     }
   }
   changeFile('user.json', userList)
@@ -134,6 +154,7 @@ function toRoleItem(data, r) {
       }
     }
   } else {
+    data.info.id = roleList.length + 1
     roleList.push(data.info)
   }
   changeFile('role.json', roleList)

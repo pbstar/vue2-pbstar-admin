@@ -222,9 +222,6 @@ export default {
         });
         return;
       }
-      if (!this.isEdit) {
-        this.roleInfo.id = this.list.length + 1;
-      }
       this.$http
         .post("toRoleItem", {
           info: this.roleInfo,
