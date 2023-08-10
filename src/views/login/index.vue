@@ -46,7 +46,7 @@ export default {
     toLogin() {
       if (!this.username) {
         this.$message({
-          message: "请输入任意账号密码即可登录",
+          message: "请输入账号",
           type: "warning",
         });
         return;
