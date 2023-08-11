@@ -169,6 +169,12 @@ export default {
     overflow: hidden;
   }
 }
+/deep/ .el-menu--collapse .el-menu-item [class^="el-icon-"] {
+  margin: 0 !important;
+  vertical-align: middle;
+  width: 24px;
+  text-align: center;
+}
 .midbox::-webkit-scrollbar {
   width: 5px;
 }
