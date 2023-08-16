@@ -1,4 +1,4 @@
 {
   "version": "2023.7.24.1",
-  "baseApi": "http://localhost:6083/"
+  "baseApi": "http://adminserver.mcweb.club/"
 }

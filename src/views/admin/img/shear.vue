@@ -150,11 +150,12 @@ export default {
         });
         return false;
       }
-      //转化为blob
+
       let reader = new FileReader();
       reader.onload = (e) => {
         let data;
         if (typeof e.target.result === "object") {
+          //转化为blob
           data = window.URL.createObjectURL(new Blob([e.target.result]));
         } else {
           data = e.target.result;
@@ -165,18 +166,9 @@ export default {
       reader.readAsDataURL(file);
     },
     baocun() {
-      // base64
-      // this.$refs.cropper.getCropData((data) => {
-      //   console.log(data);
-      // });
-
-      // blob
       this.$refs.cropper.getCropBlob((data) => {
-        console.log(data);
         var date = new Date();
         var aLink = document.createElement("a"); // 创建一个a标签
-        var event = document.createEvent("HTMLEvents");
-        event.initEvent("click", true, true);
         aLink.download = date.getTime() + "." + data.type.split("/")[1]; // 使用时间戳给文件命名
         aLink.href = URL.createObjectURL(data);
         aLink.click();
