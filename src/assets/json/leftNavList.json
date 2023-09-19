@@ -2,21 +2,30 @@
   {
     "index": "adminHome",
     "icon": "el-icon-house",
-    "title": "首页"
+    "title": "首页",
+    "details": ""
   },
   {
     "index": "adminManager",
     "icon": "el-icon-user",
-    "title": "管理员管理"
+    "title": "管理员管理",
+    "details": ""
   },
   {
     "index": "adminBusiness",
     "icon": "el-icon-copy-document",
     "title": "综合业务",
+    "details": "",
     "child": [
       {
         "index": "adminBusinessArticleList",
-        "title": "文章管理"
+        "title": "文章管理",
+        "details": ""
+      },
+      {
+        "index": "adminBusinessArticleList",
+        "title": "文章管理",
+        "details": "机构文章管理"
       }
     ]
   },
@@ -24,14 +33,17 @@
     "index": "adminEcharts",
     "icon": "el-icon-pie-chart",
     "title": "ECharts图表",
+    "details": "",
     "child": [
       {
         "index": "adminEchartsIndex",
-        "title": "普通图表"
+        "title": "普通图表",
+        "details": ""
       },
       {
         "index": "adminEchartsMap",
-        "title": "地图"
+        "title": "地图",
+        "details": ""
       }
     ]
   },
@@ -39,18 +51,22 @@
     "index": "adminImg",
     "icon": "el-icon-picture-outline",
     "title": "图片文件",
+    "details": "",
     "child": [
       {
         "index": "adminImgPreview",
-        "title": "预览"
+        "title": "预览",
+        "details": ""
       },
       {
         "index": "adminImgShear",
-        "title": "裁剪"
+        "title": "裁剪",
+        "details": ""
       },
       {
         "index": "adminImgExport",
-        "title": "导出"
+        "title": "导出",
+        "details": ""
       }
     ]
   },
@@ -58,35 +74,42 @@
     "index": "adminPdf",
     "icon": "el-icon-notebook-2",
     "title": "PDF文件",
+    "details": "",
     "child": [
       {
         "index": "adminPdfPreview",
-        "title": "预览"
+        "title": "预览",
+        "details": ""
       },
       {
         "index": "adminPdfExport",
-        "title": "导出"
+        "title": "导出",
+        "details": ""
       }
     ]
   },
   {
     "index": "adminZip",
     "icon": "el-icon-s-cooperation",
-    "title": "ZIP压缩包"
+    "title": "ZIP压缩包",
+    "details": ""
   },
   {
     "index": "adminExcel",
     "icon": "el-icon-tickets",
-    "title": "Excel文件"
+    "title": "Excel文件",
+    "details": ""
   },
   {
     "index": "adminVideo",
     "icon": "el-icon-video-play",
     "title": "视频播放",
+    "details": "",
     "child": [
       {
         "index": "adminVideoXgPlayer",
-        "title": "xgPlayer"
+        "title": "xgPlayer",
+        "details": ""
       }
     ]
   },
@@ -94,36 +117,43 @@
     "index": "adminModule",
     "icon": "el-icon-help",
     "title": "功能组件",
+    "details": "",
     "child": [
       {
         "index": "adminModuleSignature",
-        "title": "电子签名"
+        "title": "电子签名",
+        "details": ""
       },
       {
         "index": "adminModuleVerificationCode",
-        "title": "验证码"
+        "title": "验证码",
+        "details": ""
       }
     ]
   },
   {
     "index": "adminUpload",
     "icon": "el-icon-upload",
-    "title": "文件上传"
+    "title": "文件上传",
+    "details": ""
   },
   {
     "index": "adminEditer",
     "icon": "el-icon-edit-outline",
     "title": "富文本编辑器",
+    "details": "",
     "child": [
       {
         "index": "adminEditerWangEditer",
-        "title": "wangEditer"
+        "title": "wangEditer",
+        "details": ""
       }
     ]
   },
   {
     "index": "adminRole",
     "icon": "el-icon-connection",
-    "title": "角色管理"
+    "title": "角色管理",
+    "details": ""
   }
 ]

@@ -147,10 +147,32 @@ export default {
     };
   },
   created() {
-    this.leftNavList = leftNavList;
+    this.getLeftNavList();
     this.getList();
   },
   methods: {
+    getLeftNavList() {
+      console.log(leftNavList);
+      this.leftNavList = [];
+      for (let i = 0; i < leftNavList.length; i++) {
+        if (leftNavList[i].details) {
+          leftNavList[i].title =
+            leftNavList[i].title + "(" + leftNavList[i].details + ")";
+        }
+        if (leftNavList[i].child) {
+          for (let a = 0; a < leftNavList[i].child.length; a++) {
+            if (leftNavList[i].child[a].details) {
+              leftNavList[i].child[a].title =
+                leftNavList[i].child[a].title +
+                "(" +
+                leftNavList[i].child[a].details +
+                ")";
+            }
+          }
+        }
+        this.leftNavList.push(leftNavList[i]);
+      }
+    },
     getList() {
       this.$http.post("getRoleList").then((res) => {
         if (res.code == 200) {
