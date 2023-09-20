@@ -178,7 +178,7 @@ export default {
         name: "",
         account: "",
         password: "",
-        role: 1,
+        role: "1",
         createTime: "2023-01-01 12:00:00",
         isActive: 0,
         isDelete: 0,
@@ -271,7 +271,7 @@ export default {
         name: "",
         account: "",
         password: "",
-        role: 1,
+        role: "1",
         createTime: "2023-01-01 12:00:00",
         isActive: true,
         isDelete: 0,
@@ -302,6 +302,9 @@ export default {
         return;
       }
       this.userInfo.isActive = this.userInfo.isActive ? 0 : 1;
+      if (!this.isEdit) {
+        this.userInfo.createTime = this.$unit.formatDate();
+      }
       this.$http
         .post("toUser", {
           info: this.userInfo,
@@ -314,6 +317,11 @@ export default {
             this.$message({
               message: this.isEdit ? "修改成功" : "添加成功",
               type: "success",
+            });
+          } else {
+            this.$message({
+              message: res.msg,
+              type: "warning",
             });
           }
         });

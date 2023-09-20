@@ -141,6 +141,13 @@ function toUser(data, r) {
       }
     }
   } else {
+    for (let i = 0; i < userList.length; i++) {
+      if (userList[i].account == data.info.account) {
+        r.code = 101
+        r.msg = '已有该账号的用户信息！'
+        return r
+      }
+    }
     userList.push(data.info)
   }
   changeFile('user.json', userList)

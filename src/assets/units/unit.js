@@ -44,7 +44,8 @@ function getRandomStr(num) {
   }
   return res
 }
-function formatDate (date) {
+function formatDate(date) {
+  if (!date) date = new Date();
   var y = date.getFullYear();
   var m = date.getMonth() + 1;
   m = m < 10 ? "0" + m : m;
